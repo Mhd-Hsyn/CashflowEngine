@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "fdbee033-81f9-4dff-b1d3-1418845b1c1f",
+		"name": "Cash Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28511271",
+		"_collection_link": "https://interstellar-resonance-814138.postman.co/workspace/Home~97aaf852-3708-462e-9855-53210324b25d/collection/28511271-fdbee033-81f9-4dff-b1d3-1418845b1c1f?action=share&source=collection_link&creator=28511271"
+	},
+	"item": [
+		{
+			"name": "Upload Probablity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/hussain/Downloads/test.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/upload-lookup/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"upload-lookup",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Upload",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/hussain/Downloads/test.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/upload-lookup/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"upload-lookup",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Feb 2026 22:30:49 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Successfully processed 54 rows.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Run Calculation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "input_file",
+							"type": "file",
+							"src": "/home/hussain/Downloads/input_file.csv"
+						},
+						{
+							"key": "assumptions_file",
+							"type": "file",
+							"src": "/home/hussain/Downloads/assumptions_file.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/run-calculation/",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"run-calculation",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Run Calculation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "input_file",
+									"type": "file",
+									"src": "/home/hussain/Downloads/input_file.csv"
+								},
+								{
+									"key": "assumptions_file",
+									"type": "file",
+									"src": "/home/hussain/Downloads/assumptions_file.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/run-calculation/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"run-calculation",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Feb 2026 23:25:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "409"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"data\": {\n        \"id\": \"ded0bfb6-d086-41b7-bcfc-03605e0e7fc5\",\n        \"status\": \"COMPLETED\",\n        \"created_at\": \"2026-02-02T23:25:40.176029Z\",\n        \"total_input_rows\": 7,\n        \"total_output_rows\": 110,\n        \"download_url\": \"/media/outputs/result_job_ded0bfb6-d086-41b7-bcfc-03605e0e7fc5.csv\",\n        \"error_message\": null,\n        \"assumptions\": {\n            \"valuation_date\": \"2025-12-31\",\n            \"discount_rate\": \"0.043300\",\n            \"salary_increase_rate\": \"0.020000\",\n            \"retirement_age\": 55\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Calculation History",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/calculations-history/retrive?page_number=1&page_size=10",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"calculations-history",
+						"retrive"
+					],
+					"query": [
+						{
+							"key": "page_number",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "History",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/calculations-history/retrive?page_number=1&page_size=10",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"calculations-history",
+								"retrive"
+							],
+							"query": [
+								{
+									"key": "page_number",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Feb 2026 23:25:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "867"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"has_next\": false,\n    \"has_previous\": false,\n    \"page_number\": 1,\n    \"page_size\": 10,\n    \"data\": [\n        {\n            \"id\": \"897a0483-e30e-4c75-a7eb-523711d955a9\",\n            \"status\": \"COMPLETED\",\n            \"created_at\": \"2026-02-02T23:12:07.867557Z\",\n            \"total_input_rows\": 7,\n            \"total_output_rows\": 110,\n            \"download_url\": \"/media/outputs/result_job_897a0483-e30e-4c75-a7eb-523711d955a9.csv\",\n            \"error_message\": null,\n            \"assumptions\": {\n                \"valuation_date\": \"2025-12-31\",\n                \"discount_rate\": \"0.043300\",\n                \"salary_increase_rate\": \"0.020000\",\n                \"retirement_age\": 55\n            }\n        },\n        {\n            \"id\": \"eae07e0d-6494-40de-8b52-dc83da0ae41f\",\n            \"status\": \"COMPLETED\",\n            \"created_at\": \"2026-02-02T23:08:54.006171Z\",\n            \"total_input_rows\": 7,\n            \"total_output_rows\": 161,\n            \"download_url\": \"/media/outputs/result_job_eae07e0d-6494-40de-8b52-dc83da0ae41f.csv\",\n            \"error_message\": null,\n            \"assumptions\": {\n                \"valuation_date\": \"2024-12-31\",\n                \"discount_rate\": \"0.054500\",\n                \"salary_increase_rate\": \"0.050000\",\n                \"retirement_age\": 60\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Projections",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "input_file",
+							"type": "file",
+							"src": "/home/hussain/Downloads/input_file.csv"
+						},
+						{
+							"key": "assumptions_file",
+							"type": "file",
+							"src": "/home/hussain/Downloads/assumptions_file.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/v1/calculations-history/projections?job_id=897a0483-e30e-4c75-a7eb-523711d955a9",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"calculations-history",
+						"projections"
+					],
+					"query": [
+						{
+							"key": "job_id",
+							"value": "897a0483-e30e-4c75-a7eb-523711d955a9"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Projections",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "input_file",
+									"type": "file",
+									"src": "/home/hussain/Downloads/input_file.csv"
+								},
+								{
+									"key": "assumptions_file",
+									"type": "file",
+									"src": "/home/hussain/Downloads/assumptions_file.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/v1/calculations-history/projections?job_id=897a0483-e30e-4c75-a7eb-523711d955a9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"calculations-history",
+								"projections"
+							],
+							"query": [
+								{
+									"key": "job_id",
+									"value": "897a0483-e30e-4c75-a7eb-523711d955a9"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 02 Feb 2026 23:30:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "14973"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"data\": [\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 46,\n            \"projected_salary\": \"11280.00\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"53.56\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 47,\n            \"projected_salary\": \"11505.60\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"54.63\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 48,\n            \"projected_salary\": \"11735.71\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"55.72\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 49,\n            \"projected_salary\": \"11970.43\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"56.84\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 50,\n            \"projected_salary\": \"12209.83\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"86.19\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 51,\n            \"projected_salary\": \"12454.03\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"87.91\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 52,\n            \"projected_salary\": \"12703.11\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"89.67\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 53,\n            \"projected_salary\": \"12957.17\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"91.46\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 54,\n            \"projected_salary\": \"13216.32\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"93.29\"\n        },\n        {\n            \"emp_id\": \"101\",\n            \"emp_name\": \"Employee 1\",\n            \"year\": 55,\n            \"projected_salary\": \"13480.64\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"138.66\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 22,\n            \"projected_salary\": \"5030.00\",\n            \"probability_qx\": \"0.001152\",\n            \"expected_outflow\": \"5.79\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 23,\n            \"projected_salary\": \"5130.60\",\n            \"probability_qx\": \"0.001152\",\n            \"expected_outflow\": \"5.91\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 24,\n            \"projected_salary\": \"5233.21\",\n            \"probability_qx\": \"0.001152\",\n            \"expected_outflow\": \"6.03\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 25,\n            \"projected_salary\": \"5337.88\",\n            \"probability_qx\": \"0.001413\",\n            \"expected_outflow\": \"7.54\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 26,\n            \"projected_salary\": \"5444.63\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.12\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 27,\n            \"projected_salary\": \"5553.53\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.29\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 28,\n            \"projected_salary\": \"5664.60\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.45\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 29,\n            \"projected_salary\": \"5777.89\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.62\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 30,\n            \"projected_salary\": \"5893.45\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.79\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 31,\n            \"projected_salary\": \"6011.32\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"8.97\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 32,\n            \"projected_salary\": \"6131.54\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"9.15\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 33,\n            \"projected_salary\": \"6254.17\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"9.33\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 34,\n            \"projected_salary\": \"6379.26\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"9.52\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 35,\n            \"projected_salary\": \"6506.84\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"14.90\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 36,\n            \"projected_salary\": \"6636.98\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"15.20\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 37,\n            \"projected_salary\": \"6769.72\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"15.50\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 38,\n            \"projected_salary\": \"6905.11\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"15.81\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 39,\n            \"projected_salary\": \"7043.21\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"16.13\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 40,\n            \"projected_salary\": \"7184.08\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"23.07\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 41,\n            \"projected_salary\": \"7327.76\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"23.53\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 42,\n            \"projected_salary\": \"7474.32\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"24.00\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 43,\n            \"projected_salary\": \"7623.80\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"24.48\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 44,\n            \"projected_salary\": \"7776.28\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"24.97\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 45,\n            \"projected_salary\": \"7931.80\",\n            \"probability_qx\": \"0.004626\",\n            \"expected_outflow\": \"36.69\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 46,\n            \"projected_salary\": \"8090.44\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"38.41\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 47,\n            \"projected_salary\": \"8252.25\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"39.18\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 48,\n            \"projected_salary\": \"8417.29\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"39.97\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 49,\n            \"projected_salary\": \"8585.64\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"40.76\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 50,\n            \"projected_salary\": \"8757.35\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"61.82\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 51,\n            \"projected_salary\": \"8932.50\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"63.05\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 52,\n            \"projected_salary\": \"9111.15\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"64.32\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 53,\n            \"projected_salary\": \"9293.37\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"65.60\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 54,\n            \"projected_salary\": \"9479.24\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"66.91\"\n        },\n        {\n            \"emp_id\": \"201\",\n            \"emp_name\": \"Employee 2\",\n            \"year\": 55,\n            \"projected_salary\": \"9668.82\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"99.45\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 36,\n            \"projected_salary\": \"8587.00\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"19.66\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 37,\n            \"projected_salary\": \"8758.74\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"20.06\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 38,\n            \"projected_salary\": \"8933.91\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"20.46\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 39,\n            \"projected_salary\": \"9112.59\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"20.87\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 40,\n            \"projected_salary\": \"9294.84\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"29.85\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 41,\n            \"projected_salary\": \"9480.74\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"30.44\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 42,\n            \"projected_salary\": \"9670.36\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"31.05\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 43,\n            \"projected_salary\": \"9863.76\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"31.67\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 44,\n            \"projected_salary\": \"10061.04\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"32.31\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 45,\n            \"projected_salary\": \"10262.26\",\n            \"probability_qx\": \"0.004626\",\n            \"expected_outflow\": \"47.47\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 46,\n            \"projected_salary\": \"10467.51\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"49.70\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 47,\n            \"projected_salary\": \"10676.86\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"50.69\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 48,\n            \"projected_salary\": \"10890.39\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"51.71\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 49,\n            \"projected_salary\": \"11108.20\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"52.74\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 50,\n            \"projected_salary\": \"11330.36\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"79.98\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 51,\n            \"projected_salary\": \"11556.97\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"81.58\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 52,\n            \"projected_salary\": \"11788.11\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"83.21\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 53,\n            \"projected_salary\": \"12023.87\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"84.88\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 54,\n            \"projected_salary\": \"12264.35\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"86.57\"\n        },\n        {\n            \"emp_id\": \"301\",\n            \"emp_name\": \"Employee 3\",\n            \"year\": 55,\n            \"projected_salary\": \"12509.64\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"128.67\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 32,\n            \"projected_salary\": \"118911.00\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"177.42\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 33,\n            \"projected_salary\": \"121289.22\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"180.96\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 34,\n            \"projected_salary\": \"123715.00\",\n            \"probability_qx\": \"0.001492\",\n            \"expected_outflow\": \"184.58\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 35,\n            \"projected_salary\": \"126189.30\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"288.97\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 36,\n            \"projected_salary\": \"128713.09\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"294.75\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 37,\n            \"projected_salary\": \"131287.35\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"300.65\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 38,\n            \"projected_salary\": \"133913.10\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"306.66\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 39,\n            \"projected_salary\": \"136591.36\",\n            \"probability_qx\": \"0.002290\",\n            \"expected_outflow\": \"312.79\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 40,\n            \"projected_salary\": \"139323.19\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"447.37\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 41,\n            \"projected_salary\": \"142109.65\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"456.31\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 42,\n            \"projected_salary\": \"144951.85\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"465.44\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 43,\n            \"projected_salary\": \"147850.88\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"474.75\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 44,\n            \"projected_salary\": \"150807.90\",\n            \"probability_qx\": \"0.003211\",\n            \"expected_outflow\": \"484.24\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 45,\n            \"projected_salary\": \"153824.06\",\n            \"probability_qx\": \"0.004626\",\n            \"expected_outflow\": \"711.59\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 46,\n            \"projected_salary\": \"156900.54\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"744.96\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 47,\n            \"projected_salary\": \"160038.55\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"759.86\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 48,\n            \"projected_salary\": \"163239.32\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"775.06\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 49,\n            \"projected_salary\": \"166504.11\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"790.56\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 50,\n            \"projected_salary\": \"169834.19\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"1198.86\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 51,\n            \"projected_salary\": \"173230.87\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"1222.84\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 52,\n            \"projected_salary\": \"176695.49\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"1247.29\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 53,\n            \"projected_salary\": \"180229.40\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"1272.24\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 54,\n            \"projected_salary\": \"183833.99\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"1297.68\"\n        },\n        {\n            \"emp_id\": \"401\",\n            \"emp_name\": \"Employee 4\",\n            \"year\": 55,\n            \"projected_salary\": \"187510.67\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"1928.73\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 45,\n            \"projected_salary\": \"16699.00\",\n            \"probability_qx\": \"0.004626\",\n            \"expected_outflow\": \"77.25\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 46,\n            \"projected_salary\": \"17032.98\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"80.87\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 47,\n            \"projected_salary\": \"17373.64\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"82.49\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 48,\n            \"projected_salary\": \"17721.11\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"84.14\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 49,\n            \"projected_salary\": \"18075.53\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"85.82\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 50,\n            \"projected_salary\": \"18437.05\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"130.15\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 51,\n            \"projected_salary\": \"18805.79\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"132.75\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 52,\n            \"projected_salary\": \"19181.90\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"135.41\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 53,\n            \"projected_salary\": \"19565.54\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"138.11\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 54,\n            \"projected_salary\": \"19956.85\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"140.88\"\n        },\n        {\n            \"emp_id\": \"502\",\n            \"emp_name\": \"Employee 5\",\n            \"year\": 55,\n            \"projected_salary\": \"20355.99\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"209.38\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 48,\n            \"projected_salary\": \"1115.00\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"5.29\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 49,\n            \"projected_salary\": \"1137.30\",\n            \"probability_qx\": \"0.004748\",\n            \"expected_outflow\": \"5.40\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 50,\n            \"projected_salary\": \"1160.05\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"8.19\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 51,\n            \"projected_salary\": \"1183.25\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"8.35\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 52,\n            \"projected_salary\": \"1206.91\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"8.52\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 53,\n            \"projected_salary\": \"1231.05\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"8.69\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 54,\n            \"projected_salary\": \"1255.67\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"8.86\"\n        },\n        {\n            \"emp_id\": \"602\",\n            \"emp_name\": \"Employee 6\",\n            \"year\": 55,\n            \"projected_salary\": \"1280.78\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"13.17\"\n        },\n        {\n            \"emp_id\": \"702\",\n            \"emp_name\": \"Employee 7\",\n            \"year\": 53,\n            \"projected_salary\": \"8811.00\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"62.20\"\n        },\n        {\n            \"emp_id\": \"702\",\n            \"emp_name\": \"Employee 7\",\n            \"year\": 54,\n            \"projected_salary\": \"8987.22\",\n            \"probability_qx\": \"0.007059\",\n            \"expected_outflow\": \"63.44\"\n        },\n        {\n            \"emp_id\": \"702\",\n            \"emp_name\": \"Employee 7\",\n            \"year\": 55,\n            \"projected_salary\": \"9166.96\",\n            \"probability_qx\": \"0.010286\",\n            \"expected_outflow\": \"94.29\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
