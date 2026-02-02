@@ -1,7 +1,16 @@
+import io
 import pandas as pd
 from django.db import transaction
+from django.core.files.base import ContentFile
 from decimal import Decimal, InvalidOperation
-from .models import MortalityRate
+from .models import (
+    MortalityRate, 
+    JobAssumption,
+    EmployeeProjection,
+    CalculationJob,
+)
+from core.constants.choices import JobStatusChoices
+
 
 class MortalityRateService:
     
@@ -43,4 +52,140 @@ class MortalityRateService:
 
         except Exception as e:
             raise Exception(f"Error processing file: {str(e)}")
+
+
+
+class CalculationEngine:
+    
+    REQUIRED_KEYS = {
+        'valuation_date', 
+        'discount_rate', 
+        'salary_increase_rate', 
+        'retirement_age'
+    }
+
+    def __init__(self, job_id):
+        self.job = CalculationJob.objects.get(id=job_id)
+
+    def _parse_percentage(self, value):
+        val_str = str(value).strip().replace('%', '')
+        try:
+            decimal_val = Decimal(val_str)
+            if '%' in str(value):
+                return decimal_val / 100
+            return decimal_val
+        except InvalidOperation:
+            return Decimal("0.00")
+
+    def _clean_currency(self, value):
+        if pd.isna(value):
+            return Decimal("0.00")
+        val_str = str(value).replace(',', '').strip()
+        try:
+            return Decimal(val_str)
+        except InvalidOperation:
+            return Decimal("0.00")
+
+    def _extract_assumptions(self):
+        df = pd.read_csv(self.job.assumptions_file, header=None)
+        data_map = {}
+        for _, row in df.iterrows():
+            if pd.notna(row[0]):
+                key = str(row[0]).strip().lower().replace(' ', '_')
+                val = row[1]
+                data_map[key] = val
+
+        missing = self.REQUIRED_KEYS - data_map.keys()
+        if missing:
+            raise ValueError(f"Missing required assumptions: {', '.join(missing)}")
+
+        return JobAssumption.objects.create(
+            job=self.job,
+            valuation_date=pd.to_datetime(data_map['valuation_date']).date(),
+            discount_rate=self._parse_percentage(data_map['discount_rate']),
+            salary_increase_rate=self._parse_percentage(data_map['salary_increase_rate']),
+            retirement_age=int(data_map['retirement_age'])
+        )
+
+    def run(self):
+        try:
+            self.job.status = JobStatusChoices.PROCESSING
+            self.job.save()
+
+            assumptions = self._extract_assumptions()
+            
+            retire_age = assumptions.retirement_age
+            inc_rate = assumptions.salary_increase_rate
+            valuation_year = assumptions.valuation_date.year
+
+            employees_df = pd.read_csv(self.job.input_file)
+            employees_df.columns = employees_df.columns.str.strip().str.lower()
+            
+            self.job.total_input_rows = len(employees_df)
+
+            mortality_lookup = {
+                m.age: m.qx_value for m in MortalityRate.objects.all()
+            }
+
+            projection_db_objects = []
+            csv_results = []
+
+            for _, emp in employees_df.iterrows():
+                emp_id = emp.get('emp_id')
+                emp_name = emp.get('emp_name', '')
+                birth_date = pd.to_datetime(emp.get('date_birth'))
+                
+                raw_salary = emp.get('salary', 0)
+                current_salary = self._clean_currency(raw_salary)
+                
+                current_age = valuation_year - birth_date.year
+                temp_salary = current_salary
+
+                for age in range(current_age, retire_age + 1):
+                    qx = mortality_lookup.get(age, Decimal("0.00"))
+                    expected_outflow = temp_salary * qx
+                    
+                    csv_results.append({
+                        'Emp ID': emp_id,
+                        'Name': emp_name,
+                        'Year/Age': age,
+                        'Projected Salary': round(temp_salary, 2),
+                        'Probability (qx)': round(qx, 6),
+                        'Expected Outflow': round(expected_outflow, 2)
+                    })
+
+                    projection_db_objects.append(EmployeeProjection(
+                        job=self.job,
+                        emp_id=emp_id,
+                        emp_name=emp_name,
+                        year=age,
+                        projected_salary=temp_salary,
+                        probability_qx=qx,
+                        expected_outflow=expected_outflow
+                    ))
+
+                    temp_salary = temp_salary * (1 + inc_rate)
+
+            EmployeeProjection.objects.bulk_create(projection_db_objects, batch_size=5000)
+
+            output_df = pd.DataFrame(csv_results)
+            csv_buffer = io.BytesIO()
+            output_df.to_csv(csv_buffer, index=False)
+            
+            self.job.output_file.save(
+                f"result_job_{self.job.id}.csv", 
+                ContentFile(csv_buffer.getvalue()), 
+                save=False
+            )
+            
+            self.job.total_output_rows = len(output_df)
+            self.job.status = JobStatusChoices.COMPLETED
+            self.job.save()
+
+        except Exception as e:
+            self.job.status = JobStatusChoices.FAILED
+            self.job.error_message = str(e)
+            self.job.save()
+            raise e
+
 
