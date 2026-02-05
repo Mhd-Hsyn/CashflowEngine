@@ -3,6 +3,10 @@ from core.models.base import TimeStampedModel
 from core.constants.choices import JobStatusChoices
 
 class MortalityRate(TimeStampedModel):
+    """
+    Lookup Probablity csv 
+    """
+
     age = models.IntegerField(unique=True, db_index=True)
 
     qx_percent = models.DecimalField(max_digits=10, decimal_places=6, help_text="Probability of death")
@@ -64,6 +68,7 @@ class EmployeeProjection(TimeStampedModel):
     year = models.IntegerField(help_text="Projected Year/Age")
     projected_salary = models.DecimalField(max_digits=20, decimal_places=2)
     probability_qx = models.DecimalField(max_digits=10, decimal_places=6)
+    probability_px = models.DecimalField(max_digits=10, decimal_places=6, blank=True, null=True)
     expected_outflow = models.DecimalField(max_digits=20, decimal_places=2)
 
     class Meta:

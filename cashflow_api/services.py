@@ -96,7 +96,7 @@ class CalculationEngine:
             self.job.total_input_rows = len(employees_df)
 
             mortality_lookup = {
-                m.age: m.qx_value for m in MortalityRate.objects.all()
+                m.age: (m.qx_value, m.px_value) for m in MortalityRate.objects.all()
             }
 
             projection_db_objects = []
@@ -113,15 +113,18 @@ class CalculationEngine:
                 temp_salary = current_salary
 
                 for age in range(current_age, retire_age + 1):
-                    qx = mortality_lookup.get(age, Decimal("0.00"))
-                    expected_outflow = temp_salary * qx
+                    probablities = mortality_lookup.get(age, (Decimal("0.00"), Decimal("0.00")))
+                    qx_value = probablities[0]
+                    px_value = probablities[1]
+                    expected_outflow = temp_salary * qx_value * px_value
                     
                     csv_results.append({
                         'Emp ID': emp_id,
                         'Name': emp_name,
                         'Year/Age': age,
                         'Projected Salary': round(temp_salary, 2),
-                        'Probability (qx)': round(qx, 6),
+                        'Death Probability (qx)': round(qx_value, 6),
+                        'Survival Probability (px)': round(px_value, 6),
                         'Expected Outflow': round(expected_outflow, 2)
                     })
 
@@ -131,7 +134,8 @@ class CalculationEngine:
                         emp_name=emp_name,
                         year=age,
                         projected_salary=temp_salary,
-                        probability_qx=qx,
+                        probability_qx=qx_value,
+                        probability_px=px_value,
                         expected_outflow=expected_outflow
                     ))
 
