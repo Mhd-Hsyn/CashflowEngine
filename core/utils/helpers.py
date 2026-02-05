@@ -28,6 +28,7 @@ def to_decimal(value, default=Decimal("0.00")):
     - Handles None/NaN -> 0.00
     - Handles Int/Float -> Decimal
     """
+    # handle None value and NaN
     if pd.isna(value) or value == "":
         return default
 

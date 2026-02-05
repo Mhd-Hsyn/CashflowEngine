@@ -1,8 +1,8 @@
 import io
 import pandas as pd
+from decimal import Decimal
 from django.db import transaction
 from django.core.files.base import ContentFile
-from decimal import Decimal, InvalidOperation
 from .models import (
     MortalityRate, 
     JobAssumption,
@@ -14,7 +14,10 @@ from core.utils.helpers import to_decimal
 
 
 class MortalityRateService:
-    
+    """
+    Lookup Probablity save by age through csv
+    """
+
     @staticmethod
     def import_mortality_table(file_obj):
         try:
